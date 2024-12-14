@@ -1,8 +1,10 @@
 const express = require("express");
+const dotenv = require('dotenv')
 const app = express();
 const ejs = require("ejs");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const connectDB = require('./config/mongoose-connection');
 const flash = require("connect-flash");
 const expressSession = require("express-session")
 
@@ -11,9 +13,12 @@ const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
 const indexRouter = require("./routes/index")
 
-require("dotenv").config();
+// require("dotenv").config();/
+dotenv.config();
+connectDB()
 
-const db = require("./config/mongoose-connection");
+// const db = require("./config/mongoose-connection");
+const { connect } = require("http2");
 
 app.set("view engine", "ejs");
 app.use(express.json());

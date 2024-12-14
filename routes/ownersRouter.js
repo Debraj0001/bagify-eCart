@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "development") {
         }
 
         let { fullname, email, password } = req.body;
+        // console.log(email,password);
         
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(password, salt, async (err, hash) => { 
@@ -40,6 +41,7 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
     try {
         let { email, password } = req.body;
+        // console.log(email,password);
         let owner = await ownerModel.findOne({ email });
         if (!owner) {
             req.flash("error", "Email or Password is incorrect");

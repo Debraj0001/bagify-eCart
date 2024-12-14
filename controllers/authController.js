@@ -40,6 +40,7 @@ module.exports.registerUser = async (req, res) => {
         });
 
     } catch (err) {
+        console.log("error in db");
         req.flash("error", "something went wrong");
     }
 }
