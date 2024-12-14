@@ -15,8 +15,9 @@ if (process.env.NODE_ENV === "development") {
         }
 
         let { fullname, email, password } = req.body;
+        
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(password, salt, async (err, hash) => {
+            bcrypt.hash(password, salt, async (err, hash) => { 
                 if (err) return res.send(err.message);
                 else {
                     await ownerModel.create({
@@ -42,7 +43,7 @@ router.post("/login", async (req, res) => {
         let owner = await ownerModel.findOne({ email });
         if (!owner) {
             req.flash("error", "Email or Password is incorrect");
-            return res.status(401).redirect("/owners/login");
+             return res.status(401).redirect("/owners/login");
         }
 
         bcrypt.compare(password, owner.password, (err, result) => {
@@ -72,3 +73,4 @@ router.get("/createproduct", isOwnerLoggedIn, (req, res) => {
 });
 
 module.exports = router;
+
