@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const ownerModel = require("../models/owner-model");
 const productModel = require("../models/product-model")
 const { generateToken } = require("../utils/generateToken");
-const isOwnerLoggedIn = require("../middlewares/isOwnerLoggedIn");
+const isOwnerLoggedIn = require("../middlewares/isOwnerLoggedin");
 
 if (process.env.NODE_ENV === "development") {
     router.post("/create", async (req, res) => {
