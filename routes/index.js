@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const isLoggedIn = require("../middlewares/isLoggedIn")
+const isLoggedIn = require("../middlewares/isLoggedin")
 const productModel = require("../models/product-model")
 
 router.get("/", (req, res) => {

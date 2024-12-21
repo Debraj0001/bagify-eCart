@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const upload = require("../config/multer-config");
 const productModel = require("../models/product-model");
-const { isOwnerLoggedIn } = require("../middlewares/isOwnerLoggedIn");
+const { isOwnerLoggedIn } = require("../middlewares/isOwnerLoggedin");
 const ownerModel = require("../models/owner-model");
 
 router.post("/createproduct", upload.single("image"), async (req, res) => {
