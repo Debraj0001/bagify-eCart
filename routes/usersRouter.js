@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { registerUser, loginUser, logoutUser, addToCart, removeFromCart } = require("../controllers/authController")
-const isLoggedIn = require("../middlewares/isLoggedIn");
+const isLoggedIn = require("../middlewares/isLoggedin");
 const userModel = require("../models/user-model");
 
 router.get("/cart", isLoggedIn, async (req, res) => {
